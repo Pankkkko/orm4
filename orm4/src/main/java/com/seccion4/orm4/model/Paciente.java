@@ -41,8 +41,6 @@ public class Paciente {
     @Column(length = 200)
     private String correo;
 
-
-
 }
 
 
