@@ -21,7 +21,11 @@ public class PacienteController {
 
     @GetMapping
     public ResponseEntity<List<Paciente>> getPacientes(){
-        return new ResponseEntity<>(pacienteService.findAll(),HttpStatus.OK);
+        List<Paciente> pacientes = pacienteService.findAll();
+        if (!pacientes.isEmpty()){
+            return new ResponseEntity<>(pacientes,HttpStatus.OK);
+        }
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
     
 }
