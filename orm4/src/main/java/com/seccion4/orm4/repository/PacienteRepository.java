@@ -10,6 +10,9 @@ import com.seccion4.orm4.model.Paciente;
 
 @Repository
 public interface PacienteRepository extends JpaRepository<Paciente, Integer> {
-    List<Paciente> findAll();
+    List<Paciente> findAll();   //imprime la entidad pacientes
 
+    @SuppressWarnings("unchecked")
+    Paciente save(Paciente paciente);   // guarda la entidad paciente
+    
 }

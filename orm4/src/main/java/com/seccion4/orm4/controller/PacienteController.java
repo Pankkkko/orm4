@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.seccion4.orm4.model.Paciente;
 import com.seccion4.orm4.service.PacienteService;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 
 @RestController // ES TIPO RESCONTROLLER 
@@ -28,4 +30,8 @@ public class PacienteController {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
     
+    @PostMapping
+    public ResponseEntity<Paciente> postPaciente(@RequestBody Paciente paciente){
+        return new ResponseEntity<>(pacienteService.save(paciente), HttpStatus.ACCEPTED);
+    }
 }
